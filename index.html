@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -30,6 +30,32 @@ body{
   color:#fff;
   text-align:center;
   overflow-x:hidden;
+  position:relative;
+}
+
+/* FUEGOS ARTIFICIALES */
+
+.fireworks-overlay{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  pointer-events:none;
+
+  mix-blend-mode:screen;
+
+  opacity:.55;
+
+  z-index:2;
+}
+
+/* CONTENIDO */
+
+body > *:not(.fireworks-overlay){
+  position:relative;
+  z-index:5;
 }
 
 /* INTRO */
@@ -129,12 +155,6 @@ body{
 .section{
   padding:80px 20px;
   background:rgba(0,0,0,.65);
-}
-
-.section h2{
-  max-width:900px;
-  margin:auto;
-  line-height:1.8;
 }
 
 /* IMÁGENES */
@@ -282,6 +302,13 @@ select{
 
 <body>
 
+<!-- FUEGOS ARTIFICIALES -->
+
+<img 
+  src="./assets/artificiales.gif" 
+  class="fireworks-overlay"
+>
+
 <!-- AUDIO -->
 
 <audio id="music" loop preload="auto">
@@ -399,9 +426,7 @@ select{
   <br>
 
   <button class="btn" onclick="generar()">
-
     confirma tu asistencia whatsapp
-
   </button>
 
   <div id="boleto" class="boleto hidden">
@@ -415,9 +440,7 @@ select{
     <br>
 
     <a id="wa" class="btn" target="_blank">
-
       Enviar WhatsApp
-
     </a>
 
   </div>
@@ -430,11 +453,8 @@ select{
 
   <div class="frases">
 
-
- </p>
-
     <p>
-       Te esperamos desde las 2 de la tarde para compartir este momento especial.   
+       Te esperamos desde las 2 de la tarde para compartir este momento especial.
     </p>
 
     <p>
